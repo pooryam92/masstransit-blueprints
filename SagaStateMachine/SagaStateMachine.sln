@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppHost", "AppHost\AppHost.csproj", "{946BC3BC-0938-4ED7-A844-8082A6BBC81C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orchestrator", "Orchestrator\Orchestrator.csproj", "{1C464534-75EA-4090-8847-EBE8C028E593}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{CB3B16CF-87F4-4987-B72E-CA33232DA334}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{946BC3BC-0938-4ED7-A844-8082A6BBC81C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{946BC3BC-0938-4ED7-A844-8082A6BBC81C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{946BC3BC-0938-4ED7-A844-8082A6BBC81C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{946BC3BC-0938-4ED7-A844-8082A6BBC81C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C464534-75EA-4090-8847-EBE8C028E593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C464534-75EA-4090-8847-EBE8C028E593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C464534-75EA-4090-8847-EBE8C028E593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C464534-75EA-4090-8847-EBE8C028E593}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

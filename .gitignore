@@ -1,0 +1,34 @@
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# ASP.NET Core
+wwwroot/**/dist/
+wwwroot/lib/
+
+# NuGet Packages
+*.nupkg
+# The packages folder can be ignored because of Package Restore
+packages/
+
+# Rider
+.idea/
+*.sln.iml
+*.DotSettings
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage results
+coverage/

@@ -1,0 +1,6 @@
+@Orchestrator_HostAddress = http://localhost:5184
+
+GET {{Orchestrator_HostAddress}}/start-saga/
+Accept: application/json
+
+###
