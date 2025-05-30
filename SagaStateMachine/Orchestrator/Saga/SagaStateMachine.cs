@@ -7,7 +7,7 @@ public class SagaStateMachine : MassTransitStateMachine<SagaState>
 {
     public Event<StartSaga> StartSaga { get; private set; }
 
-    public State SagaStarted { get; set; }
+    public State StateOne { get; set; }
 
     public SagaStateMachine()
     {
@@ -15,7 +15,9 @@ public class SagaStateMachine : MassTransitStateMachine<SagaState>
 
         Initially(
             When(StartSaga)
-                .TransitionTo(SagaStarted)
+                .Then(context => context.Saga.CustomProperty = context.Message.CustomProperty)
+                .PublishAsync(context => context.Init<StepOne>(new { context.Saga.CorrelationId }))
+                .TransitionTo(StateOne)
         );
     }
 }

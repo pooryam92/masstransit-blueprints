@@ -1,6 +1,6 @@
-using System.Reflection;
 using MassTransit;
 using Messages;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Orchestrator.Saga;
 
@@ -13,6 +13,8 @@ builder.Services.AddDbContext<OrchestratorDbContext>(dbBuilder =>
 
 builder.Services.AddMassTransit(x =>
 {
+    x.SetEndpointNameFormatter(KebabCaseEndpointNameFormatter.Instance);
+
     x.AddSagaStateMachine<SagaStateMachine, SagaState>()
         .EntityFrameworkRepository(r =>
         {
@@ -35,18 +37,18 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapGet("/start-saga", async (IPublishEndpoint publishEndpoint) =>
-{
-    var message = new StartSaga() { CorrelationId = Guid.NewGuid() };
-    await publishEndpoint.Publish(message);
-    return Results.Ok("Message published");
-});
+app.MapGet("/start-saga/{customProperty}",
+    async (IPublishEndpoint publishEndpoint, [FromRoute] string? customProperty) =>
+    {
+        var message = new StartSaga() { CorrelationId = Guid.NewGuid(), CustomProperty = customProperty };
+        await publishEndpoint.Publish(message);
+        return Results.Ok("Message published");
+    });
 
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<OrchestratorDbContext>();
     await db.Database.MigrateAsync();
 }
-
 
 app.Run();
