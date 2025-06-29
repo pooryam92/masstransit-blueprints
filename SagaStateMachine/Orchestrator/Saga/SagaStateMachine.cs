@@ -5,9 +5,13 @@ namespace Orchestrator.Saga;
 
 public class SagaStateMachine : MassTransitStateMachine<SagaState>
 {
-    public Event<StartSaga> StartSaga { get; private set; }
+    public Event<StartSaga> StartSaga { get; }
+    public Event<ActivityOneCompleted> ActivityOneCompleted { get; }
+    public Event<ActivityTwoCompleted> ActivityTwoCompleted { get; }
 
-    public State StateOne { get; set; }
+    public State StateOne { get; }
+    public State StateTwo { get; }
+    public State Completed { get; }
 
     public SagaStateMachine()
     {
@@ -16,8 +20,21 @@ public class SagaStateMachine : MassTransitStateMachine<SagaState>
         Initially(
             When(StartSaga)
                 .Then(context => context.Saga.CustomProperty = context.Message.CustomProperty)
-                .PublishAsync(context => context.Init<StepOne>(new { context.Saga.CorrelationId }))
+                .PublishAsync(context =>
+                    context.Init<StartActivityOne>(new { context.Saga.CorrelationId, context.Saga.CustomProperty })
+                )
                 .TransitionTo(StateOne)
         );
+
+        During(StateOne,
+            When(ActivityOneCompleted)
+                .PublishAsync(context =>
+                    context.Init<StartActivityTwo>(new { context.Saga.CorrelationId, context.Saga.CustomProperty })
+                )
+                .TransitionTo(StateTwo));
+
+        During(StateTwo,
+            When(ActivityTwoCompleted)
+                .TransitionTo(Completed));
     }
 }

@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orchestrator", "Orchestrato
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messages", "Messages\Messages.csproj", "{CB3B16CF-87F4-4987-B72E-CA33232DA334}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceA", "ServiceA\ServiceA.csproj", "{C6410D21-C7FC-4092-ABD0-41AB984D09B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceB", "ServiceB\ServiceB.csproj", "{56EE656D-28CF-4F03-B745-445E6A05E4F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB3B16CF-87F4-4987-B72E-CA33232DA334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6410D21-C7FC-4092-ABD0-41AB984D09B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6410D21-C7FC-4092-ABD0-41AB984D09B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6410D21-C7FC-4092-ABD0-41AB984D09B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6410D21-C7FC-4092-ABD0-41AB984D09B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56EE656D-28CF-4F03-B745-445E6A05E4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56EE656D-28CF-4F03-B745-445E6A05E4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56EE656D-28CF-4F03-B745-445E6A05E4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56EE656D-28CF-4F03-B745-445E6A05E4F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

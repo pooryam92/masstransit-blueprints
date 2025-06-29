@@ -2,8 +2,7 @@ using MassTransit;
 
 namespace Orchestrator.Saga;
 
-public class SagaState :
-    SagaStateMachineInstance
+public class SagaState : SagaStateMachineInstance
 {
     public Guid CorrelationId { get; set; }
     public required string CurrentState { get; set; }

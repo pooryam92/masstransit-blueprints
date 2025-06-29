@@ -18,6 +18,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Orchestrator\Orchestrator.csproj"/>
+        <ProjectReference Include="..\ServiceA\ServiceA.csproj"/>
+        <ProjectReference Include="..\ServiceB\ServiceB.csproj"/>
     </ItemGroup>
 
 </Project>

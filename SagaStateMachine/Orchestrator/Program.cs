@@ -13,7 +13,7 @@ builder.Services.AddDbContext<OrchestratorDbContext>(dbBuilder =>
 
 builder.Services.AddMassTransit(x =>
 {
-    x.SetEndpointNameFormatter(KebabCaseEndpointNameFormatter.Instance);
+    x.SetKebabCaseEndpointNameFormatter();
 
     x.AddSagaStateMachine<SagaStateMachine, SagaState>()
         .EntityFrameworkRepository(r =>
