@@ -9,10 +9,11 @@ public class ActivityOneConsumer : IConsumer<StartActivityOne>
     {
         if (context.Message is { CustomProperty: "fail-one" })
         {
+            context.Publish(new ActivityOneFailed() { CorrelationId = context.CorrelationId!.Value });
+            return Task.CompletedTask;
         }
 
         context.Publish(new ActivityOneCompleted() { CorrelationId = context.CorrelationId!.Value });
-
         return Task.CompletedTask;
     }
 }

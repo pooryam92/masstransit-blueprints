@@ -9,6 +9,8 @@ public class ActivityTwoConsumer : IConsumer<StartActivityTwo>
     {
         if (context.Message is { CustomProperty: "fail-two" })
         {
+            context.Publish(new ActivityTwoFailed() { CorrelationId = context.CorrelationId!.Value });
+            return Task.CompletedTask;
         }
 
         context.Publish(new ActivityTwoCompleted() { CorrelationId = context.CorrelationId!.Value });

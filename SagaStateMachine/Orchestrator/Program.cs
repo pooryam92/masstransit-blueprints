@@ -11,11 +11,12 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<OrchestratorDbContext>(dbBuilder =>
     dbBuilder.UseNpgsql(builder.Configuration.GetConnectionString("postgres")));
 
+
 builder.Services.AddMassTransit(x =>
 {
     x.SetKebabCaseEndpointNameFormatter();
 
-    x.AddSagaStateMachine<SagaStateMachine, SagaState>()
+    x.AddSagaStateMachine<SagaStateMachine, SagaState>(p => { p.UseMessageRetry(r => r.Interval(2, 1000)); })
         .EntityFrameworkRepository(r =>
         {
             r.ConcurrencyMode = ConcurrencyMode.Pessimistic;

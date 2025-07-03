@@ -1,9 +1,13 @@
 @Orchestrator_HostAddress = http://localhost:5184
 
-## happy flow
+### happy flow
 GET {{Orchestrator_HostAddress}}/start-saga/happy
 Accept: application/json
 
-### fail  activity one 
+### fail activity one
 GET {{Orchestrator_HostAddress}}/start-saga/fail-one
+Accept: application/json
+
+### fail activity two 
+GET {{Orchestrator_HostAddress}}/start-saga/fail-two
 Accept: application/json

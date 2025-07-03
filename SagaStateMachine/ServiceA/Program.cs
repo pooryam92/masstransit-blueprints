@@ -9,6 +9,8 @@ builder.Services.AddMassTransit(x =>
     x.SetEndpointNameFormatter(KebabCaseEndpointNameFormatter.Instance);
 
     x.AddConsumer<ActivityOneConsumer>();
+    x.AddConsumer<CompensateActivityOneConsumer>();
+
     x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(builder.Configuration.GetConnectionString("rabbitmq"));
