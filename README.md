@@ -27,6 +27,4 @@ And the service's will execute the tasks until the saga is in a final state.
 
 ![flow](assets/flow.png)
 
-### Overview
 
-![overview](assets/overview.png)
